@@ -16,3 +16,76 @@
   
   
 
+```
+#include <stdio.h>
+
+typedef struct 
+{
+	int res;
+	int cnt;
+}Answer;
+
+Answer find(int N, int wrong[]) 
+{
+	Answer ans;
+	ans.res = 0;
+	ans.cnt = 0;
+
+	while (N > 0)
+	{
+		if (wrong[N % 10] == 1)
+		{
+			ans.res = 1;
+		}
+		N = N / 10;
+		ans.cnt++;
+	}
+
+	return ans;
+}
+
+int main()
+{
+	int N, M, num, cnt = 0, min = 500001, i;
+	Answer ans;
+	int wrong[10] = { 0 };
+
+
+	printf("채널 입력 : ");
+	scanf("%d", &N);
+	printf("고장난 버튼의 개수 입력 : ");
+	scanf("%d", &M);
+	printf("고장난 버튼 입력 : ");
+	for (int i = 0; i < M; i++)
+	{
+		scanf("%d", &num);
+		wrong[num] = 1;
+	}
+
+
+	for (i = 0; i < 1000000; i++)
+	{
+		ans = find(i, wrong);
+		if (ans.res == 0)
+		{
+			cnt = i - N;
+			if (cnt < 0)
+				cnt = (-1)*cnt;
+			cnt = cnt + ans.cnt;
+			if (cnt < min)
+				min = cnt;
+		}
+
+	}
+
+	cnt = N - 100;
+	if (cnt < 0)
+		cnt = (-1)*cnt;
+
+	if (cnt < min)
+		min = cnt;
+
+	printf("버튼 누르는 최소 횟수 : %d", min);
+
+}
+```
