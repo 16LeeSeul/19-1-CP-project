@@ -24,12 +24,12 @@ N(1~15)마리의 소들을 순서대로 세워놓은 후, 각 소들 사이에 +
 #include <stdio.h>
 #include <math.h>
 
-static int arr[20] = { 0 };
-static int change[20] = { 0 };
-static char cal[15];
-static char cal1[15];
-static int cow;
-static int cnt = 0;
+int arr[20] = { 0 };
+int change[20] = { 0 };
+char cal[15];
+char cal1[15];
+int cow;
+int cnt = 0;
 
 
 int cowline(int current, int what, int cow, char cal[], int arr[], int change[], char cal1[])   
