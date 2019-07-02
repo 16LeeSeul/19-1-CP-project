@@ -129,7 +129,7 @@ int cowline(int current, int what, int cow, char cal[], int arr[], int change[],
 
 int main()
 {
-	int cow;
+  int cow;
   scanf("%d", &cow);
 
 	for (int i = 0; i < cow; i++)
